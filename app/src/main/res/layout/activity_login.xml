@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <View
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo"
+        android:layout_width="240dp"
+        android:layout_height="120dp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textColor="#fff"
+        android:textSize="45sp"
+        android:layout_gravity="center_horizontal"
+        android:text="Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textCursorDrawable="@null"
+        android:id="@+id/user_name"
+        android:padding="2dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="18sp"
+        android:gravity="start|center"
+        android:inputType="textPersonName"
+        android:drawableLeft="@drawable/user"
+        android:drawablePadding="12dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:maxLines="1"
+        android:background="#66000000"
+        android:ems="10"
+        android:textColorHint="#B0B0B0"
+        android:textColor="#fff"
+        android:hint="Your Name"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+
+    <EditText
+        android:textCursorDrawable="@null"
+        android:id="@+id/user_email"
+        android:padding="2dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="18sp"
+        android:gravity="start|center"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:maxLines="1"
+        android:background="#66000000"
+        android:ems="10"
+        android:textColorHint="#B0B0B0"
+        android:textColor="#fff"
+        android:hint="Email Id"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <ProgressBar
+        android:layout_margin="5dp"
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:transitionName="verifyButton"
+        android:id="@+id/verify_email"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:background="@drawable/mybutton"
+        android:text="Get Registered"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content" />
+
+
+    <View
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:text="*Verification link will be sent to the entered email"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

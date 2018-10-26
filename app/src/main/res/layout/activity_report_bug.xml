@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:background="#e0e0e0"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ReportBugActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:textSize="25sp"
+            android:gravity="center"
+            android:text="Report a Bug"
+            android:textColor="#fff"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <!--Activity where the activity/app crashed-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textColor="#585858"
+            android:paddingStart="19dp"
+            android:textSize="13sp"
+            android:text="Enter the Activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/bug_title"
+            android:textColor="#000"
+            android:textColorHint="#585858"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:hint="Enter the activity where you encountered the bug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--Did the app crash-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textColor="#585858"
+            android:paddingStart="19dp"
+            android:textSize="13sp"
+            android:text="Did the activity/app crash?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:layout_marginTop="5dp"
+            android:id="@+id/yes_or_no"
+            android:entries="@array/yes_or_no"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:spinnerMode="dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--Description Section-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textColor="#585858"
+            android:paddingStart="19dp"
+            android:textSize="13sp"
+            android:text="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/bug_description"
+            android:gravity="start"
+            android:minLines="5"
+            android:textColor="#000"
+            android:textColorHint="#585858"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:hint="Describe the issue you have encountered, and how did you encountered the error?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--Suggestion Section-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textColor="#585858"
+            android:paddingStart="19dp"
+            android:textSize="13sp"
+            android:text="Suggestion to add (if any)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/suggestion"
+            android:gravity="start"
+            android:minLines="5"
+            android:textColor="#000"
+            android:textColorHint="#585858"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:textSize="16sp"
+            android:hint="Your suggestion will be valuable for us, feel free to suggest any new ideas!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/send_report"
+            android:textColor="#fff"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Send Report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

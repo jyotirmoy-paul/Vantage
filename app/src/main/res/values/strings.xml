@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Vantage</string>
+
+    <string-array name="sale_or_rent">
+        <item>Ad for Sale</item>
+        <item>Ad for Rent</item>
+    </string-array>
+
+    <string-array name="yes_or_no">
+        <item>Yep, it did!</item>
+        <item>Nope!</item>
+    </string-array>
+
+
+</resources>

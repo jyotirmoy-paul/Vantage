@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChattingActivity">
+
+    <!--Top chat status bar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/other_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Jyotirmoy Paul"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/exit_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_back" />
+
+    </RelativeLayout>
+
+    
+    <!--Chat Display Area-->
+    <ListView
+        android:transcriptMode="alwaysScroll"
+        android:scrollbars="none"
+        android:id="@+id/chat_list_view"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:stackFromBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </ListView>
+    
+    
+    <!--Message Writing area-->
+    <LinearLayout
+        android:scrollbars="none"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+            android:id="@+id/write_message"
+            android:layout_margin="7dp"
+            android:padding="5dp"
+            android:background="#fff"
+            android:layout_weight="1"
+            android:hint="Type a message."
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/send_button"
+            android:text="SEND"
+            android:background="@drawable/mybutton"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_width="70dp"
+            android:layout_height="match_parent" />
+
+        
+    </LinearLayout>
+    
+</LinearLayout>

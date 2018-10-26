@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostAd">
+    <ScrollView
+        android:scrollbars="none"
+        android:background="#E0E0E0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textStyle="bold"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:paddingStart="10dp"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:text="Advertisement Details"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textColor="#585858"
+                android:paddingStart="18dp"
+                android:textSize="13sp"
+                android:text="Choose Ad Type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:layout_marginTop="5dp"
+                android:id="@+id/choose_sale_or_rent"
+                android:entries="@array/sale_or_rent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:spinnerMode="dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--Ad title section-->
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textColor="#585858"
+                android:paddingStart="19dp"
+                android:textSize="13sp"
+                android:text="Ad Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/ad_title"
+                android:textColor="#000"
+                android:textColorHint="#585858"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:textSize="16sp"
+                android:hint="Enter Ad Title (Min 10 characters)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <!--Price Section-->
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textColor="#585858"
+                android:paddingStart="19dp"                android:textSize="13sp"
+                android:text="Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:inputType="number"
+                android:id="@+id/price_of_product"
+                android:textColor="#000"
+                android:textColorHint="#585858"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:textSize="16sp"
+                android:hint="Enter a Relevant Price (in Rs)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <!--Select image section-->
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/ad_cover_image"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:id="@+id/upload_photo_layout"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/add_photo"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" />
+
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="Upload a Cover Photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="#000"
+                        android:text="The Cover photo is shown in the News Feed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!--Description Section-->
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textColor="#585858"
+                android:paddingStart="19dp"                android:textSize="13sp"
+                android:text="Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/ad_description"
+                android:gravity="start"
+                android:minLines="5"
+                android:textColor="#000"
+                android:textColorHint="#585858"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:textSize="16sp"
+                android:hint="Include brand name, model, age and any included accessories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:textColor="#585858"
+                android:paddingStart="19dp"                android:textSize="13sp"
+                android:text="Add More Photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <Button
+                    android:id="@+id/ad_photo_01"
+                    android:text="Photo #01"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:id="@+id/ad_photo_02"
+                    android:text="Photo #02"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/post_ad_button"
+                android:layout_margin="15dp"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:background="@drawable/mybutton"
+                android:text="Post Your Ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

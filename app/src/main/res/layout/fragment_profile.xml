@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Profile">
+    <android.support.v4.widget.NestedScrollView
+        android:background="@color/colorPrimary"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Layout containing Name and Email-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/name_email"
+                android:background="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="110dp"
+                    android:textSize="22sp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:text="Jyotirmoy Paul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/user_email"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="110dp"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="#B8B8B8"
+                    android:text="jyotirmoy@iiitkalyani.ac.in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"/>
+
+            </LinearLayout>
+
+            <!--Profile Display-->
+            <LinearLayout
+                android:layout_marginStart="30dp"
+                android:translationY="45dp"
+                android:background="@drawable/profile_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/user_display_char"
+                    android:textColor="#fff"
+                    android:textSize="40sp"
+                    android:gravity="center"
+                    android:text="J"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="35dp"
+                android:layout_below="@id/name_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <!--Upper Half Section-->
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp">
+
+                    <!--Confirmed Deals-->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/no_of_deals"
+                            android:textSize="40sp"
+                            android:textColor="#fff"
+                            android:text="13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:textSize="15sp"
+                            android:textColor="#B8B8B8"
+                            android:text="Confirmed Deals"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!--Ad Posted-->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/no_of_ads_posted"
+                            android:textSize="40sp"
+                            android:textColor="#fff"
+                            android:text="67"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:textSize="15sp"
+                            android:textColor="#B8B8B8"
+                            android:text="Ad Posted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Lower Half Section-->
+                <android.support.v7.widget.CardView
+                    app:cardBackgroundColor="#707070"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="15dp"
+                    android:layout_margin="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_marginEnd="7dp"
+                            android:layout_marginStart="7dp"
+                            android:id="@+id/my_posted_ad"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/my_posted_ad_text"
+                                android:textSize="20sp"
+                                android:textColor="#fff"
+                                android:text="My Posted Ads"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <View
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:src="@drawable/ic_forward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#B8B8B8"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+
+
+
+
+                        <LinearLayout
+                            android:id="@+id/show_all_chats"
+                            android:layout_marginEnd="7dp"
+                            android:layout_marginStart="7dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="20sp"
+                                android:textColor="#fff"
+                                android:text="Conversation History"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <View
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:src="@drawable/ic_forward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#B8B8B8"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/settings"
+                            android:layout_marginEnd="7dp"
+                            android:layout_marginStart="7dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="20sp"
+                                android:textColor="#fff"
+                                android:text="Modify Audio Settings"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <View
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:src="@drawable/ic_forward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#B8B8B8"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/give_feedback"
+                            android:layout_marginEnd="7dp"
+                            android:layout_marginStart="7dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="20sp"
+                                android:textColor="#fff"
+                                android:text="Give Feedback"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <View
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:src="@drawable/ic_forward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#B8B8B8"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+
+
+                        <LinearLayout
+                            android:id="@+id/report_bug"
+                            android:layout_marginEnd="7dp"
+                            android:layout_marginStart="7dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="20sp"
+                                android:textColor="#fff"
+                                android:text="Report a Bug"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <View
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:src="@drawable/ic_forward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#B8B8B8"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+
+
+
+                        <LinearLayout
+                            android:id="@+id/delete_my_account"
+                            android:layout_marginEnd="7dp"
+                            android:layout_marginStart="7dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="20sp"
+                                android:textColor="#fff"
+                                android:text="Delete My Account"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <View
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:src="@drawable/ic_forward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>

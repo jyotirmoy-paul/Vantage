@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginBottom="5dp"
+        android:visibility="gone"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/self_message_view"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="85dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/self_message"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_margin="10dp"
+            android:text="Hi there, how are you bro?i am good, but do you know how good this "
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/user_message_view"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginStart="5dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#DCDCDC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/user_message"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_margin="10dp"
+            android:text="Hi there "
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
