@@ -40,6 +40,13 @@ By now, you would have already downloaded the "google-services.json" file and co
 4. For Authentication, "Email/Password"  and "Email link (passwordless sign-in)", in Firebase should be enabled.
 ### Installing the App
 Import the app to Android Studio, build the project and finally deploy it in a device (or emulator).
+## Features
+* You can sell/buy varies ranges of products within our IIIT Kalayani Campus, all you need is an official '..@iiitkalyani.ac.in' email to register.
+* Posting an Ad is pretty simple and straight forward.
+* News Feed area in the app shows recently posted Ads by any fellow college mates.
+* One to one interaction between seller and buyer or owner and renter through the built in chat fucntionality.
+* Non-editable Ads, that would ensure the buyer's safety.
+* And the most important part is, the app has an one time-based registration signup.
 ##  Build With
 * [Google Firebase](https://firebase.google.com/)
 * [AndroidStaggeredGrid Library](https://github.com/etsy/AndroidStaggeredGrid)
