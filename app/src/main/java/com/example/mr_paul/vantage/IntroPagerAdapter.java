@@ -1,6 +1,7 @@
 package com.example.mr_paul.vantage;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -95,7 +96,7 @@ public class IntroPagerAdapter extends PagerAdapter {
                     context.getSharedPreferences("userInformation",Context.MODE_PRIVATE)
                             .edit().putBoolean("showAppIntro",false).apply();
                     context.startActivity(new Intent(context,LoginActivity.class));
-
+                    ((Activity) context).finish();
                 }
             });
         }
