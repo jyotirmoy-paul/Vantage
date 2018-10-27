@@ -39,13 +39,6 @@ public class UserVerificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_verification);
 
-
-        // to make the screen go full
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
-
         sharedPreferences = getSharedPreferences("userInformation",MODE_PRIVATE);
         userName = sharedPreferences.getString("userName","");
         userEmail = sharedPreferences.getString("userEmail","");
