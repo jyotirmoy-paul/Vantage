@@ -5,35 +5,23 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ErrorDialogFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Random;
 
 import static java.lang.Math.min;
 
@@ -43,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
     String emailId;
+    String userPin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +69,17 @@ public class LoginActivity extends AppCompatActivity {
         final EditText userName = findViewById(R.id.user_name);
         final EditText userEmail = findViewById(R.id.user_email);
         final Button verifyEmail = findViewById(R.id.verify_email);
+        final EditText userPinInput = findViewById(R.id.user_pin);
+        TextView alreadyAuser = findViewById(R.id.already_a_user);
+
+        alreadyAuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisteredUserLogin.class));
+                LoginActivity.this.finish();
+            }
+        });
+
 
         // button to send the email link ---> for verification of user
         verifyEmail.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +126,15 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                // check for the pin
+                userPin = userPinInput.getText().toString().trim();
+                if(userPin.length() ==0 ){
+                    userPinInput.setError("Can't be empty!");
+                    userPinInput.requestFocus();
+                    return;
+                }
+
+
                 // email and name of the user is checked for no error
                 // now verify the credentials
 
@@ -134,14 +143,8 @@ public class LoginActivity extends AppCompatActivity {
                 pd.setMessage("Creating Account");
                 pd.show();
 
-                Random random = new Random(); // a user is created with random password (as password
-                // is not necessary: one-time registration )
-                final String password = random.nextLong() + "";
-                // storing the password inside the app, (will be used for re-authentication or
-                // if user wants to delete account)
 
-
-                mAuth.createUserWithEmailAndPassword(emailId,password)
+                mAuth.createUserWithEmailAndPassword(emailId,userPin)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -171,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     editor.putBoolean("isNotVerified",true);
                                                     editor.putString("userName",name_of_user);
                                                     editor.putString("userEmail",emailId);
-                                                    editor.putString("password",password);
+                                                    editor.putString("password",userPin);
                                                     editor.apply();
 
                                                     // call an intent to the user verification activity
@@ -197,7 +200,11 @@ public class LoginActivity extends AppCompatActivity {
                                         throw task.getException();
                                     }
                                     catch(FirebaseAuthUserCollisionException e){
-                                        showEmailCollisionError();
+                                        emailCollisionError();
+                                    }
+                                    catch(FirebaseAuthWeakPasswordException e){
+                                        userPinInput.setError("Too weak password!");
+                                        userPinInput.requestFocus();
                                     }
                                     catch(Exception e){
                                         Toast.makeText(LoginActivity.this,
@@ -211,38 +218,25 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void showEmailCollisionError(){
+    public void emailCollisionError(){
 
-        String errorMessage = "If '" + emailId + "' is your email id, then you either have cleared the app data, or forced the app to close after entering your Registration Details. \nWhat so ever be the case, contact the developer for help.";
-
-        // show an error dialog box
-        AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(LoginActivity.this, android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            builder = new AlertDialog.Builder(LoginActivity.this);
-        }
-        builder.setTitle("Registration Error!")
-                .setMessage(errorMessage)
-                .setPositiveButton("Contact the developer", new DialogInterface.OnClickListener() {
+        // open an activity for user to login using their Pin and email Address
+        String[] options = {"Proceed with Login","Stay Here"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
+                .setTitle("You are a registered user, try logging in!")
+                .setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if(which == 0){
 
-                        // call an intent to g-mail for writing to developer
-                        // call an intent to Gmail app
-                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "jyotirmoy@iiitkalyani.ac.in"));
-                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Vantage Registration Error");
-                        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email: " + emailId + "\n\n");
-                        startActivity(Intent.createChooser(emailIntent, "Chooser Title"));
+                            startActivity(new Intent(LoginActivity.this, RegisteredUserLogin.class));
+                            LoginActivity.this.finish();
 
+                        }
                     }
-                })
-                .setNegativeButton("Ooops! It wasn't my Email Id", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+                });
+        builder.show();
+
     }
 
 }
