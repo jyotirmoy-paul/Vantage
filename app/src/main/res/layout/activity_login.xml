@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,7 +45,7 @@
             android:inputType="textPersonName"
             android:drawableLeft="@drawable/user"
             android:drawablePadding="12dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:maxLines="1"
             android:background="#66000000"
@@ -78,6 +78,39 @@
             android:hint="Email Id"
             android:layout_width="match_parent"
             android:layout_height="45dp" />
+
+        <EditText
+            android:textCursorDrawable="@null"
+            android:id="@+id/user_pin"
+            android:padding="2dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="18sp"
+            android:gravity="start|center"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:maxLines="1"
+            android:background="#66000000"
+            android:ems="10"
+            android:textColorHint="#B0B0B0"
+            android:textColor="#fff"
+            android:hint="Set a Password"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/already_a_user"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:textColor="#fff"
+            android:text="Already a user?"
+            android:gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
        <View
            android:layout_weight="1"
@@ -114,4 +147,8 @@
 
     </LinearLayout>
 
+
+
 </ScrollView>
+
+
