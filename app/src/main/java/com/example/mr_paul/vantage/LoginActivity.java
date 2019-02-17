@@ -1,10 +1,11 @@
-package com.example.mr_paul.vantage;
+package com.jyotirmoy.mr_paul.vantage;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -216,6 +217,20 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+
+        // external link for the privacy policy
+        TextView privacyPolicyView = findViewById(R.id.privacy_policy);
+        privacyPolicyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://vantage-19-10-2018.firebaseapp.com/"));
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     public void emailCollisionError(){
