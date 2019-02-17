@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.mr_paul.vantage"
+        applicationId "com.jyotirmoy.mr_paul.vantage"
         minSdkVersion 18
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,10 +28,11 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     // firebase dependencies
-    implementation 'com.google.firebase:firebase-core:16.0.4'
-    implementation 'com.google.firebase:firebase-database:16.0.3' // firebase database
-    implementation 'com.google.firebase:firebase-storage:16.0.3' // firebase storage
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-database:16.0.5' // firebase database
+    implementation 'com.google.firebase:firebase-storage:16.0.5' // firebase storage
     implementation 'com.google.firebase:firebase-auth:16.0.5' // firebase authentication
+    implementation 'com.google.firebase:firebase-messaging:17.3.4' // firebase cloud messaging service
 
     implementation "com.android.support:support-compat:28.0.0"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
